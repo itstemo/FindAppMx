@@ -13,6 +13,32 @@
 		  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 		<script type="text/javascript" src="parse.js"></script>
 
+		<script type="text/javascript">
+		$().ready(function() {
+
+		$('input[name="radios"]').on('change', function(){
+    		if ($(this).val()=='Persona') {
+         	//cambia a "persona"
+         	$("#leyendab").text("Reportar persona extraviada");
+         	$("#nombre").attr("placeholder","Nombre(s) y apellidos")
+    		} else  {
+        	 $("#leyendab").text("Reportar mascota extraviada");
+        	 $("#nombre").attr("placeholder","Nombre de tu mascota")
+    		}
+			});
+		$('input[name="rsexo"]').on('change', function(){
+    		if ($(this).val()=='Femenino') {
+         	//cambia a "persona"
+         	$("#lnombre").text("Nombre de la extraviada:");         	
+    		} else  {
+        	 $("#lnombre").text("Nombre del extraviado:");
+    		}
+			});
+	
+		});
+
+		</script>
+
 	</head>
 	<body onload="load()"> 
 		<div class="row">
@@ -22,7 +48,7 @@
 		<fieldset>
 
 		<!-- Form Name -->
-		<legend>Buscar Persona </legend>
+		<legend id="leyendab">Reportar persona extraviada</legend>
 		<output id="list"></output>
 
 		<!-- Multiple Radios (inline) -->
@@ -40,11 +66,25 @@
 		  </div>
 		</div>
 
+		<div class="control-group">
+		  <label class="control-label" for="rsexo"></label>
+		  <div class="controls">
+			<label class="radio-inline" for="rsexo-0">
+			  <input type="radio" name="rsexo" id="femenino" value="Femenino" checked="checked">
+			  Femenino
+			</label>
+			<label class="radio-inline" for="rsexo-1">
+			  <input type="radio" name="rsexo" id="masculino" value="Masculino">
+			  Masculino
+			</label>
+		  </div>
+		</div>
+
 		<!-- Text input-->
 		<div class="control-group">
-		  <label class="control-label" for="nombre">Nombre de la persona?</label>
+		  <label class="control-label" for="nombre" id="lnombre">Nombre de la extraviada:</label>
 		  <div class="controls">
-			<input id="nombre" name="nombre" type="text" placeholder="Nombre con apellido" class="input-xlarge" required="">
+			<input id="nombre" name="nombre" type="text" placeholder="Nombre(s) y apellidos" class="input-xlarge" required="">
 
 		  </div>
 		</div>
@@ -52,7 +92,7 @@
 				<div class="control-group">
 				  <label class="control-label" for="lugar">Lugar donde se extravio</label>
 				  <div class="controls">
-					<input id="lugar" name="lugar" type="text" placeholder="Calle/Delegacion/Auditorio" class="input-xlarge" required="">
+					<input id="lugar" name="lugar" type="text" placeholder="Calle/Colonia/Delegacion" class="input-xlarge" required="">
 
 				  </div>
 				</div>
