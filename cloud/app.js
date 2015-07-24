@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 var indexPage = '/realIndex.html'; // This can not be index.html because that one would be catched by the '/' rule below
-
+// Lol
 app.use(express.bodyParser());
 
 app.all('/', function(req, res) {
@@ -14,5 +14,7 @@ app.all('/', function(req, res) {
     res.redirect(indexPage);
   }
 });
+// app.host y endpoint in request.post
+
 
 app.listen();

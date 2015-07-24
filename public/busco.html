@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head> 
-		
+	<head>
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 		<script type="text/javascript" src="maps.js"></script>
@@ -12,14 +12,37 @@
 				<link rel="stylesheet" type="text/css" href="style.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		  <script type="text/javascript" src="https://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 		<script type="text/javascript" src="parse.js"></script>
+		<script type="text/javascript">
+		$().ready(function() {
+		$('input[name="radios"]').on('change', function(){
+    		if ($(this).val()=='Persona') {
+         	//cambia a "persona"
+         	$("#leyendab").text("Reportar persona extraviada");
+         	$("#nombre").attr("placeholder","Nombre(s) y apellidos")
+    		} else  {
+        	 $("#leyendab").text("Reportar mascota extraviada");
+        	 $("#nombre").attr("placeholder","Nombre de tu mascota")
+    		}
+			});
+		$('input[name="rsexo"]').on('change', function(){
+    		if ($(this).val()=='Femenino') {
+         	//cambia a "persona"
+         	$("#lnombre").text("Nombre de la extraviada:");
+    		} else  {
+        	 $("#lnombre").text("Nombre del extraviado:");
+    		}
+			});
 
-		
-		 
+		});
+		</script>
+
+
+
 	</head>
-	<body onload="initialize()"> 
+	<body onload="initialize()">
 		<div class="row">
 			 <div id="latlong">
 			    <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
@@ -47,6 +70,19 @@
 			</label>
 		  </div>
 		</div>
+		<div class="control-group">
+		  <label class="control-label" for="rsexo"></label>
+		  <div class="controls">
+			<label class="radio-inline" for="rsexo-0">
+			  <input type="radio" name="rsexo" id="femenino" value="Femenino" checked="checked">
+			  Femenino
+			</label>
+			<label class="radio-inline" for="rsexo-1">
+			  <input type="radio" name="rsexo" id="masculino" value="Masculino">
+			  Masculino
+			</label>
+		  </div>
+		</div>
 
 		<!-- Text input-->
 		<div class="control-group">
@@ -56,6 +92,7 @@
 
 		  </div>
 		</div>
+
 		<!-- Text input-->
 				<div class="control-group">
 				  <label class="control-label" for="lugar">Lugar donde se extravio</label>
@@ -67,17 +104,17 @@
 		<!-- Textarea -->
 		<div class="control-group">
 		  <label class="control-label" for="caracteristicas">Caracteristicas</label>
-		  <div class="controls">                     
+		  <div class="controls">
 			<textarea id="caracteristicas" name="caracteristicas"></textarea>
 		  </div>
 		</div>
 
-		<!-- File Button --> 
+		<!-- File Button -->
 		<div class="control-group">
 		  <label class="control-label" for="filebutton">Elige una foto</label>
 			<input id="filebutton" name="filebutton" class="btn btn-primary center-block" type="file" >
 		</div>
-			
+
 			<script>
 //				Agrega el preview de la imagen en chiquito
 			if (window.FileReader) {
@@ -85,19 +122,19 @@
         var files = evt.target.files;
         var f = files[0];
         var reader = new FileReader();
-		
+
           reader.onload = (function(theFile) {
             return function(e) {
               document.getElementById('list').innerHTML = ['<img src="', e.target.result,'" title="', theFile.name, '" width="50"/>'].join('');
             };
           })(f);
-    
+
           reader.readAsDataURL(f);
       }
 	 } else {
 	  alert('This browser does not support FileReader');
 	}
-    
+
       document.getElementById('filebutton').addEventListener('change', handleFileSelect, false);
 			</script>
 
@@ -109,7 +146,7 @@
 		</div>
 
 		</fieldset>
-			
+
 					<button id="submit" name="singlebutton" class="btn btn-primary center-block">Enviar</button>
 		</form>
 		</div>
@@ -118,10 +155,10 @@
 
 
   <div id="map" style="width: 500px; margin-left: 20px; height: 300px"></div>
-  
-			</div>	
+
+			</div>
 		</div>
-		
+
 
 
 	</body>
