@@ -42,11 +42,15 @@
 
 
 	</head>
+	<ul class="nav nav-pills nav-justified" role="navigation">
+  <li role="presentation" class="active" ><a href="busco.html" >Buscar</a></li>
+  <li role="presentation"><a href="encontre.html">Encontré</a></li>
+  <li role="presentation"><a href="mapa.html">Ver Mapa</a></li>
+	</ul>
+	
 	<body onload="initialize()">
 		<div class="row">
-			 <div id="latlong">
-			    <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
-				 <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p> </div>
+			 
 			<div class="col-sm-6">
 		<form class="form-horizontal" id="submitPerdi">
 
@@ -66,7 +70,7 @@
 			</label>
 			<label class="radio-inline" for="radios-1">
 			  <input type="radio" name="radios" id="animal" value="Animal">
-			  Animal
+			  Mascota
 			</label>
 		  </div>
 		</div>
@@ -144,6 +148,9 @@
 		  <div class="controls">
 		  </div>
 		</div>
+			<div id="latlong">
+			    <p>Latitud: <input size="20" type="text" id="latbox" name="lat" ></p>
+				 <p>Longitud: <input size="20" type="text" id="lngbox" name="lng" ></p> </div>
 
 		</fieldset>
 
@@ -153,8 +160,9 @@
 		<div class="col-sm-6">
 <!--			Agregar el google Maps-->
 
-
+		<br><br><br>
   <div id="map" style="width: 500px; margin-left: 20px; height: 300px"></div>
+			
 
 			</div>
 		</div>

@@ -41,6 +41,11 @@
 		</script>
 
 	</head>
+	<ul class="nav nav-pills nav-justified" role="navigation">
+  <li role="presentation" ><a href="busco.html">Buscar</a></li>
+  <li role="presentation" class="active"><a href="#">Encontré</a></li>
+  <li role="presentation"><a href="mapa.html">Ver Mapa</a></li>
+</ul>
 	<body onload="initialize()"> 
 		<div class="row">
 			<div class="col-sm-6">
@@ -62,7 +67,7 @@
 			</label>
 			<label class="radio-inline" for="radios-1">
 			  <input type="radio" name="radios" id="animal" value="Animal">
-			  Animal
+			  Mascota
 			</label>
 		  </div>
 		</div>
@@ -134,8 +139,8 @@
       document.getElementById('filebutton').addEventListener('change', handleFileSelect, false);
 			</script>
 			<div id="latlong">
-			    <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
-				 <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p> </div>
+			    <p>Latitud: <input size="20" type="text" id="latbox" name="lat" ></p>
+				 <p>Longitud: <input size="20" type="text" id="lngbox" name="lng" ></p> </div>
 		<!-- Button -->
 		<div class="control-group">
 		  <label class="control-label" for="singlebutton"></label>
@@ -152,7 +157,7 @@
 		<div class="col-sm-6">
 <!--			Agregar el google Maps-->
 
-
+			<br><br><br>
   <div id="map" style="width: 500px; margin-left: 20px; height: 300px"></div>
   
 			</div>	

@@ -36,12 +36,20 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		var nombre = object.get("nombre");
 		
 		var myinfowindow = new google.maps.InfoWindow({
-			content: '<b>' + nombre + '</b> <img src = '+imagenURL+' width="200" height="200"> </br><p>' + caract + '</p>'  
+			content: '<center><b>' + nombre + '</b></br> <img src = '+imagenURL+' width="200" height="200"> </br><p>' + caract + '</p></center>'  
 		});
+		
+		var myIcon = '';
+		if((object.get("tipo")) === "Persona"){
+			 myIcon = 'img/redman.png';
+		} else {
+			myIcon = 'img/redpet.jpg';
+		}
 
 		var marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
+				icon: myIcon,
 			 infowindow: myinfowindow
 
               });
@@ -72,13 +80,20 @@ query1.find({
 		var nombre = object.get("nombre");
 		
 		var myinfowindow = new google.maps.InfoWindow({
-			content: '<b>' + nombre + '</b> <img src = '+imagenURL+' width="200" height="200"> </br><p>' + caract + '</p>'  
+			content: '<center><b>' + nombre + '</b></br> <img src = '+imagenURL+' width="200" height="200"> </br><p>' + caract + '</p></center>'  
 		});
+		
+		var myIcon = '';
+		if((object.get("tipo")) === "Persona"){
+			 myIcon = 'img/greenman.png';
+		} else {
+			myIcon = 'img/greenpet.jpg';
+		}
 
 		var marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
-				icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', 
+				icon: myIcon, 
 			 infowindow: myinfowindow
 
               });
