@@ -1,70 +1,27 @@
-<!--
 <!DOCTYPE html>
 <html>
--->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
-<head>
-<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"></script>
-<script>
-
-var markers = [];
-
-
-function updateImage(latLang) {
-   var baseUrl = "http://maps.google.com/maps/api/staticmap?center"+latLang+"&zoom=13&size=500x300&sensor=TRUE_OR_FALSE";
-//				  http://maps.google.com/maps/api/staticmap?center=37.400470,-122.072981&zoom=13&size=500x300&sensor=TRUE_OR_FALSE
-}
-
-function load() {
-  if (GBrowserIsCompatible()) {
-    map = new GMap2(document.getElementById("map"));
-    map.setCenter(new GLatLng(19.4307323,-99.1345688), 16);
-    map.addMapType(G_PHYSICAL_MAP);
-    map.addControl(new GSmallMapControl());
-    map.addControl(new GMapTypeControl());
-    geocoder = new GClientGeocoder();
-    //updateImage(latlng);
-  }
-}
-
-
-function showAddress() {
-  var address = document.getElementById("addressTEXT").value;
-  geocoder.getLatLng( address,
-    function(latlng) {
-      if (!latlng) {
-        alert(address + " not found");
-      } else {
-        map.setCenter(latlng, 13);
-        createMarkerAt(latlng, address);
-		alert(latlng);
-        //updateImage(latlng);
-		
+  <head>
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	  		  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+		<script type="text/javascript" src="mapsparse.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0;
+        padding: 0;
       }
-    }
-  );
-}
+
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+    <script>
 
 
-function createMarkerAt(latlng, address) {
-  var marker = new GMarker(latlng, {draggable:true, title: address});
-  GEvent.addListener(marker, 'dragend', function() {
-    //updateImage();
-  });
-  map.addOverlay(marker);
-  markers.push(marker);
-}
-
- 
-</script>
-<link rel="stylesheet" type="text/css" href="http://code.google.com/css/dev_docs.css">
-</head>
-<body onload="load()">
-
-
-  <div id="map" style="width: 1000px; margin-left: 20px; height: 800px"></div>
-  
-
-</body>
-
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
 </html>

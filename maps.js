@@ -1,50 +1,21 @@
 
-var markers = [];
-
-
-function updateImage(latLang) {
-   var baseUrl = "http://maps.google.com/maps/api/staticmap?center"+latLang+"&zoom=13&size=500x300&sensor=TRUE_OR_FALSE";
-//				  http://maps.google.com/maps/api/staticmap?center=37.400470,-122.072981&zoom=13&size=500x300&sensor=TRUE_OR_FALSE
-}
-
-function load() {
-  if (GBrowserIsCompatible()) {
-    map = new GMap2(document.getElementById("map"));
-    map.setCenter(new GLatLng(19.4307323,-99.1345688), 16);
-    map.addMapType(G_PHYSICAL_MAP);
-    map.addControl(new GSmallMapControl());
-    map.addControl(new GMapTypeControl());
-    geocoder = new GClientGeocoder();
-    //updateImage(latlng);
-  }
-}
-
-
-function showAddress() {
-  var address = document.getElementById("addressTEXT").value;
-  geocoder.getLatLng( address,
-    function(latlng) {
-      if (!latlng) {
-        alert(address + " not found");
-      } else {
-        map.setCenter(latlng, 13);
-        createMarkerAt(latlng, address);
-		alert(latlng);
-        //updateImage(latlng);
-		
-      }
-    }
-  );
-}
-
-
-function createMarkerAt(latlng, address) {
-  var marker = new GMarker(latlng, {draggable:true, title: address});
-  GEvent.addListener(marker, 'dragend', function() {
-    //updateImage();
+var map;
+function initialize() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: {lat: 19.4313725, lng: -99.1330237}
   });
-  map.addOverlay(marker);
-  markers.push(marker);
+	
+	var marker = new google.maps.Marker({
+      position: {lat: 19.4313725, lng: -99.1330237},
+      map: map,
+		draggable:true,
+  });
+	
+	google.maps.event.addListener(marker, 'dragend', function (event) {
+    document.getElementById("latbox").value = event.latLng.lat();
+    document.getElementById("lngbox").value = event.latLng.lng();
+	});
 }
 
- 
+google.maps.event.addDomListener(window, 'load', initialize);

@@ -16,6 +16,8 @@ $(document).ready(function() {
 
 
 		var data = {};
+		data.longitud =$("#lngbox").val();
+		data.latitud =$("#latbox").val();
 		data.nombre = $("#nombre").val();
 		data.lugar = $("#lugar").val();
 		data.caracteristicas = $("#caracteristicas").val();

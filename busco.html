@@ -2,9 +2,12 @@
 <html lang="en">
 
 	<head> 
+		
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 		<script type="text/javascript" src="maps.js"></script>
-		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"></script>
+<!--		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"></script>-->
+
 
 				<link rel="stylesheet" type="text/css" href="style.css">
 
@@ -13,9 +16,14 @@
 		  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 		<script type="text/javascript" src="parse.js"></script>
 
+		
+		 
 	</head>
-	<body onload="load()"> 
+	<body onload="initialize()"> 
 		<div class="row">
+			 <div id="latlong">
+			    <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
+				 <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p> </div>
 			<div class="col-sm-6">
 		<form class="form-horizontal" id="submitPerdi">
 
