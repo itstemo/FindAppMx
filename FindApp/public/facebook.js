@@ -8,7 +8,7 @@ window.fbAsyncInit = function() {
 
 function onLogin(response) {
   if (response.status == 'connected') {
-    
+
   }
 }
 

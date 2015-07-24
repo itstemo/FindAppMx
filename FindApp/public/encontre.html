@@ -20,19 +20,19 @@
 		$('input[name="radios"]').on('change', function(){
     		if ($(this).val()=='Persona') {
          	//cambia a "persona"
-         	$("#leyendab").text("Reportar persona extraviada");
+         	$("#leyendab").text("Reportar persona encontrada");
          	$("#nombre").attr("placeholder","Nombre(s) y apellidos")
     		} else  {
-        	 $("#leyendab").text("Reportar mascota extraviada");
+        	 $("#leyendab").text("Reportar mascota encontrada");
         	 $("#nombre").attr("placeholder","Nombre de tu mascota")
     		}
 			});
 		$('input[name="rsexo"]').on('change', function(){
     		if ($(this).val()=='Femenino') {
          	//cambia a "persona"
-         	$("#lnombre").text("Nombre de la extraviada:");
+         	$("#lnombre").text("Nombre de la encontrada:");
     		} else  {
-        	 $("#lnombre").text("Nombre del extraviado:");
+        	 $("#lnombre").text("Nombre del encontrado:");
     		}
 			});
 

@@ -1,22 +1,14 @@
 
 				  function showNotification(){
 
-            var userOD, accs_tk;
-            var app_id='1744047332489375';
-            var app_secr='2edc870f11d93b9b8f53798a0fc9c57a';
-
-
-            FB.init({
-              appId      : '1744047332489375',
-              xfbml      : true,
-              version    : 'v2.4'
-            });
+            var userOD, accs_tok;
 
             FB.getLoginStatus(function(response) {
               // Check login status on load, and if the user is
               // already logged in, go directly to the welcome message.
               if (response.status == 'connected') {
-                onLogin(response);
+                userOD=response.authResponse.userID;
+                accs_tok='1744047332489375|o6awV863RfIEgavmtGl4yZ4Nl8c';
               } else {
                 // Otherwise, show Login dialog first.
                 FB.login(function(response) {
@@ -25,12 +17,7 @@
               }
             });
 
-            function onLogin(response) {
-              if (response.status == 'connected') {
-                  userOD=response.authResponse.userID;
-                  accs_tk='1744047332489375|o6awV863RfIEgavmtGl4yZ4Nl8c';
-              }
-            }
+
 
             Parse.initialize("LDUjtHoZzgepi460STD39zOo2ah6i5SEPD8OsGpH", "b1ayhsBbaERGv2pp50iqXHmFUEpeQFyt7pXxLwYV");
 
@@ -60,16 +47,3 @@
           });
 
         }
-
-
-
-
-
-
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
