@@ -7,16 +7,20 @@ $(document).ready(function() {
 
 		
 	$("#submitPerdi").on("submit", function(e) {
+		var tipo = "";
+		if($("#animal").is(':checked')){
+			tipo = "Mascota";
+		} else {
+			tipo = "Persona";
+		}
 		e.preventDefault();
 
-		console.log("Handling the submit");
-		//add error handling here
-		//gather the form data
 
 		var data = {};
 		data.nombre = $("#nombre").val();
 		data.lugar = $("#lugar").val();
 		data.caracteristicas = $("#caracteristicas").val();
+		data.tipo = tipo;
 	
 		var fileUploadControl = $("#filebutton")[0];
 		var file = fileUploadControl.files[0];

@@ -2,6 +2,8 @@
 <html lang="en">
 
 	<head> 
+				<link rel="stylesheet" type="text/css" href="style.css">
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
@@ -9,22 +11,23 @@
 
 	</head>
 	<body> 
+		    <output id="list"></output>
 		<form class="form-horizontal" id="submitPerdi">
 		<fieldset>
 
 		<!-- Form Name -->
-		<legend>Form </legend>
+		<legend>Buscar Persona </legend>
 
 		<!-- Multiple Radios (inline) -->
 		<div class="control-group">
 		  <label class="control-label" for="radios"></label>
 		  <div class="controls">
-			<label class="radio inline" for="radios-0">
-			  <input type="radio" name="radios" id="radios-0" value="Persona" checked="checked">
+			<label class="radio-inline" for="radios-0">
+			  <input type="radio" name="radios" id="persona" value="Persona" checked="checked">
 			  Persona
 			</label>
-			<label class="radio inline" for="radios-1">
-			  <input type="radio" name="radios" id="radios-1" value="Animal">
+			<label class="radio-inline" for="radios-1">
+			  <input type="radio" name="radios" id="animal" value="Animal">
 			  Animal
 			</label>
 		  </div>
@@ -50,17 +53,37 @@
 		<div class="control-group">
 		  <label class="control-label" for="caracteristicas">Caracteristicas</label>
 		  <div class="controls">                     
-			<textarea id="caracteristicas" name="caracteristicas">Razgos que nos ayuden a encontrarla</textarea>
+			<textarea id="caracteristicas" name="caracteristicas"></textarea>
 		  </div>
 		</div>
 
 		<!-- File Button --> 
 		<div class="control-group">
-		  <label class="control-label" for="filebutton">File Button</label>
-		  <div class="controls">
-			<input id="filebutton" name="filebutton" class="input-file" type="file">
-		  </div>
+		  <label class="control-label" for="filebutton">Elige una foto</label>
+			<input id="filebutton" name="filebutton" class="btn btn-primary center-block" type="file" >
 		</div>
+			
+			<script>
+			if (window.FileReader) {
+      function handleFileSelect(evt) {
+        var files = evt.target.files;
+        var f = files[0];
+        var reader = new FileReader();
+		
+          reader.onload = (function(theFile) {
+            return function(e) {
+              document.getElementById('list').innerHTML = ['<img src="', e.target.result,'" title="', theFile.name, '" width="50"/>'].join('');
+            };
+          })(f);
+    
+          reader.readAsDataURL(f);
+      }
+	 } else {
+	  alert('This browser does not support FileReader');
+	}
+    
+      document.getElementById('filebutton').addEventListener('change', handleFileSelect, false);
+			</script>
 
 		<!-- Button -->
 		<div class="control-group">
