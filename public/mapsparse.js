@@ -30,9 +30,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 		 var latlng = new google.maps.LatLng(lat,lon);
 		var nombre = object.get("nombre");
+<<<<<<< Updated upstream:public/mapsparse.js
 
 		var myinfowindow = new google.maps.InfoWindow({
 			content: '<b>' + nombre + '</b> <img src = '+imagenURL+' width="200" height="200">'
+=======
+		var caract = object.get("caracteristicas");
+		
+		var myinfowindow = new google.maps.InfoWindow({
+			content: '<b>' + nombre + '</b> <img src = '+imagenURL+' width="200" height="200"> </br><p>' + caract + '</p>'  
+>>>>>>> Stashed changes:mapsparse.js
 		});
 
 		var marker = new google.maps.Marker({
