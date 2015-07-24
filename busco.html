@@ -2,6 +2,9 @@
 <html lang="en">
 
 	<head> 
+		<script type="text/javascript" src="maps.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"></script>
+
 				<link rel="stylesheet" type="text/css" href="style.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -10,7 +13,7 @@
 		<script type="text/javascript" src="parse.js"></script>
 
 	</head>
-	<body> 
+	<body onload="load()"> 
 		<div class="row">
 			<div class="col-sm-6">
 		<form class="form-horizontal" id="submitPerdi">
@@ -67,6 +70,7 @@
 		</div>
 			
 			<script>
+//				Agrega el preview de la imagen en chiquito
 			if (window.FileReader) {
       function handleFileSelect(evt) {
         var files = evt.target.files;
@@ -92,7 +96,6 @@
 		<div class="control-group">
 		  <label class="control-label" for="singlebutton"></label>
 		  <div class="controls">
-			<button id="submit" name="singlebutton" class="btn btn-primary">Enviar</button>
 		  </div>
 		</div>
 
@@ -101,12 +104,22 @@
 		</div>
 		<div class="col-sm-6">
 <!--			Agregar el google Maps-->
-			
-			
+
+
+  
+  <div id="staticMapIMG" style="width: 500px; margin-left: 20px; height: 300px"></div>
+  <div id="map" style="width: 500px; margin-left: 20px; height: 300px"></div>
+  
+
+<br clear="all"/>
+
+
+
 			</div>	
 		</div>
 		
-		
+					<button id="submit" name="singlebutton" class="btn btn-primary center-block">Enviar</button>
+
 
 	</body>
 </html>

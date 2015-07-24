@@ -1,12 +1,18 @@
+.form{
 
+}
 
+.form-horizontal {
 
-form {
-	width: 300px ;
-    margin: 0 auto;
-    border: 3px solid #ccc;
-    padding: 10px;
-    display: inline-block;
-	text-align: center;
+	text-align:center;
+
+}
+
+.input-file{
 	
+
+}
+
+.btn btn-primary{
+	text-align: center;
 }

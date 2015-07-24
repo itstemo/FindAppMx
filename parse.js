@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
 	Parse.initialize("LDUjtHoZzgepi460STD39zOo2ah6i5SEPD8OsGpH", "b1ayhsBbaERGv2pp50iqXHmFUEpeQFyt7pXxLwYV");
 
@@ -33,7 +32,6 @@ $(document).ready(function() {
 		perdido.save(data, {
 			success:function() {
 				console.log("Success");
-				//Alerts are lame - but quick and easy
 				alert("Alerta enviada! Haremos lo posible por ayudarlo.");
 			},
 			error:function(e) {
